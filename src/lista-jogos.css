@@ -1,0 +1,206 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap');
+
+*{padding: 0; margin: 0; box-sizing: border-box; font-family: 'Poppins';}
+ 
+body {
+  background-color: #252525;
+} 
+
+.box-jogos{
+  position: absolute;
+  left: 96px;
+}
+
+.meus-jogos h1{
+  color: white;
+  font-weight: 275;
+  margin-bottom: 46px;
+  margin-top: 30px;
+  font-size: 48px;
+}
+
+.meus-jogos{
+  margin-left: 56px;
+  width: 80vw;
+}
+
+.menuVertical{
+  position: absolute;
+  width: 96px;
+  height: 100%;
+  left: 0px;
+  top: 0px; 
+  background: #333333;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+  text-align: center;
+}
+
+.menuVertical li{
+  width: 96px;
+  height: 96px;
+}
+
+.menuVertical li:hover{
+  background-color: #404040;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.25);
+}
+
+.menuVertical span{
+  color: #D9D9D9;
+  font-size: 40px;
+  margin-top: 30px;
+  
+}
+
+.sair{
+  color: #EC7979; 
+  width: 96px;
+  padding: 25px 0;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  font-size: 36px;
+}
+
+.sair:hover{
+  background-color: #404040;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.25);
+}
+
+
+.menu-lista{
+  font-size: 24px;
+  font-weight: 275;
+  text-align: left; 
+  color: #D9D9D9;
+  margin-bottom: 19px;
+}
+
+.menu-lista p, .menu-lista div, .lista-jogos li{
+  display: inline-block;
+}
+
+.titulo{
+  margin-left: 20px;
+  width: 23.05%;
+}
+
+.preço{
+  margin-left: 20px;
+  width: 17.08%;
+} 
+ 
+.genero{
+  margin-left: 20px;
+  width: 32.23%;
+}  
+
+.add-jogos1{
+  margin-left: 20px;
+  width: 19.43%;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.icone{
+  color:#775CB6;
+  height: 20px;
+  width: 20px;
+  margin-left: 8px;
+  position: relative;
+  top: 5px;
+}
+
+.add-icone{
+  color:#775CB6;
+  font-size: 18px;
+  white-space: nowrap;
+} 
+
+.lista-jogos{
+  height: 56px;
+  width: 99.8%;
+  border-radius: 4px;
+  background: #333333;
+  margin-bottom: 16px;
+}
+
+.lista-jogos li{
+  color: #D9D9D9;
+  padding: 10px 0;
+}
+
+.lista-jogos li:nth-child(1){
+  /* padding-left: 2%; */
+  margin-left: 1.95%;
+  width: 23.05%;
+}
+
+.lista-jogos li:nth-child(2){
+  margin-left: 1.95%;
+  width: 17.08%; 
+}
+
+.lista-jogos li:nth-child(3){
+  margin-left: 1.95%;
+  width: 32.23%;
+}
+
+.lista-jogos li:nth-child(4){
+  margin-left: 1.95%;
+  padding-left: 10.16%;
+  width: 19.43%;
+}
+
+.lista-jogos p{
+  display: inline-block;
+  background-color: #2B008D;
+  margin-right: 5px;
+  border-radius: 4px;
+  padding: 0px 5px;
+}
+
+.caneta{
+  height: 18px;
+  width: 18px;
+}
+
+.lixeira{
+  margin-left: 40px;
+  height: 18px;
+  width: 14px;
+}
+
+.icones-fim{
+  position: relative;
+  top: 6px;
+}
+
+.add-jogos2{
+  color:#775CB6;
+  width: 199px;
+  height: 27px;
+  margin: 0 auto;
+  display: flex;
+}
+
+.textoIcone2{
+  color: #775CB6;
+  font-family: Poppins;
+  font-weight: 600;
+  font-size: 18px;
+  margin-left: 8px;
+}
+
+.icone2{
+  height: 20px;
+  width: 20px;
+  position: relative;
+  top:2px;  
+}
+
+.jogos-fixos{
+  margin-top: 6px;
+}
+
+

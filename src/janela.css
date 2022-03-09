@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,700;1,200;1,400;1,700&display=swap');
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins';
+}
+
+.display-block{
+  display: block;
+}
+
+.box{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 40%;
+  background-color: #252525;
+}
+
+.pelicula{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background-color: #00000094;
+}
+
+.caminhos{
+  position: absolute;
+  z-index: 3;
+}
+.caminhos a{
+  color: rgb(216, 0, 0);
+}
+
+nav.titulo{
+  background-color: #333333;
+  color: white;
+  text-align: center;
+  margin-bottom: 22px;
+}
+
+.titulo h1{
+  font-weight: 200;
+  padding: 18px 0;
+}
+
+.white{
+  color: #D9D9D9;
+}
+
+.weight200{
+  font-weight: 200;
+}
+
+.box label{
+  font-size: 18px;
+}
+
+.box input, .tela-conta input{
+  display: block;
+  padding-left: 10px;
+  background-color: #333333;
+  border: none;
+  box-shadow: 4px 4px 4px 0px#00000040;
+  border-radius: 4px;
+  font-size: 20px;
+  line-height: 34px;
+  color: white;
+  margin-top: 5px;
+  margin-bottom: 16px;
+  width: 100%;
+  color: #D9D9D9;
+}
+
+.box input:focus{
+  outline: 0;
+  box-shadow: 0 0 10px rgb(102, 102, 102);
+}
+
+.inputs{
+  width: 74%;
+  margin: 0 auto;
+}
+
+.btn{
+  outline: none;
+  border: none;
+  width: 33%;
+  margin-bottom: 51px;
+  color: white;
+  border-radius: 8px;
+  box-shadow: 4px 4px 4px 0px #00000040;
+  font-size: 16px;
+  padding: 10px 0;
+  font-weight: 200;
+}
+
+.btns{
+  padding: 30px 0 51px 0;
+}
+
+.btn:focus{
+  box-shadow: 0 0 10px rgb(102, 102, 102);
+}
+
+.btn-roxo{
+  background-color: #3700B3;
+  margin: 0 13% 0 4%;
+}
+
+.btn-marrom{
+  background-color: #904949;
+  margin: 0 4% 0 13%;
+}
