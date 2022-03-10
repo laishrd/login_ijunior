@@ -1,10 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,700;1,200;1,400;1,700&display=swap');
 
 *{
-  padding: 0;
+  padding: 0px;
   margin: 0;
   box-sizing: border-box;
   font-family: 'Poppins';
+}
+
+.show{
+  display: block;
+}
+
+.hide{
+  display: none;
 }
 
 .display-block{
@@ -12,7 +20,7 @@
 }
 
 .box{
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -22,7 +30,7 @@
 }
 
 .pelicula{
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -31,22 +39,15 @@
   background-color: #00000094;
 }
 
-.caminhos{
-  position: absolute;
-  z-index: 3;
-}
-.caminhos a{
-  color: rgb(216, 0, 0);
-}
 
-nav.titulo{
+.box nav.titulo{
   background-color: #333333;
   color: white;
   text-align: center;
   margin-bottom: 22px;
 }
 
-.titulo h1{
+.box .titulo h1{
   font-weight: 200;
   padding: 18px 0;
 }

@@ -1,4 +1,3 @@
-import Menu from './Menu'
 import Input from './Input'
 import './janela.css'
 import './minha-conta.css'
@@ -33,7 +32,6 @@ function TelaConta(){
 export default function MinhaConta(){
     return(
         <div>
-            <Menu/>
             <TelaConta/>
         </div>
     );

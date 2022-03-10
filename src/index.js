@@ -2,12 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import { BrowserRouter } from "react-router-dom";
- 
+import TodosJogos from './TodosJogos' 
+import Principal from './Principal'
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <BrowserRouter>
+    <Principal/>
+  </BrowserRouter>,
   document.getElementById('root')
 );
 

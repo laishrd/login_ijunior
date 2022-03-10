@@ -1,34 +1,26 @@
 import {useState} from 'react'
 import './lista-jogos.css';
-
-
-
-function Menu(props) {
-  
-  return(
-    <nav className='menuVertical'>
-      <ul>
-        <li><a href=" "> <span className="material-icons-round">home</span></a></li>
-        <li><a href=" "> <span className="material-icons-round">sports_esports</span></a></li>
-        <li><a href=" "> <span className="material-icons-round">account_circle</span></a></li>
-        <i className="material-icons-round sair">logout</i>
-      </ul>
-    </nav> 
-
-  );
-}
-
+import './janela.css'
+import AdicionarJogo from './AdicionarJogo'
+import EditarJogo from './EditarJogo'
 
 function MeusJogos(props){
+
+  var [adicionarJogo, setAdicionarJogo] = useState('hide');
+  var [editarJogo, setEditarJogo] = useState('hide');
+
   return(
-    <div className='box-jogos'>
-      <div className='meus-jogos'>
-          <h1 className='white'>Todos Jogos</h1>
-          <MenuLista/>       
-          <ListaJogos/>
-          <JogosFixos/>
-          <AddJogos/>
-          
+    <div>
+      <AdicionarJogo classe={adicionarJogo} setClasse={setAdicionarJogo}/>
+      <EditarJogo classe={editarJogo} setClasse={setEditarJogo}/>
+      <div className='box-jogos'>
+        <div className='meus-jogos'>
+            <h1 className='white'>Todos Jogos</h1>
+            <MenuLista setClasse={setAdicionarJogo}/>       
+            <ListaJogos setClasse={setEditarJogo}/>
+            <JogosFixos/>
+            <AddJogos setClasse={setAdicionarJogo}/>
+        </div>
       </div>
     </div>
   );
@@ -41,7 +33,7 @@ function MenuLista(props){
          <p className='titulo'>Título</p>
          <p className='preço'>Preço</p>
          <p className='genero'>Gênero</p> 
-         <div className='add-jogos1'><p className='add-icone'>Adicionar um Jogo</p><span className="material-icons-round icone">control_point </span></div>
+         <div className='add-jogos1' onClick={() => props.setClasse('show')}><p className='add-icone'>Adicionar um Jogo</p><span className="material-icons-round icone">control_point </span></div>
        </ul>
      </nav>
    );
@@ -52,6 +44,9 @@ function ListaJogos(props){
   var [arrayJogos, setArrayJogos] = useState([{titulo: 'Dark Souls', preco : '159.90', genero : ['Souls-like', 'Dark-Fantasy', 'Dificil']},
   {titulo: 'Jogo jogável 2', preco : '199.90', genero : ['Dark', 'Fantasia', 'Hard']},
   {titulo: 'Jogo bastante jogável 2', preco : '299.90', genero : ['Dark', 'side', 'of', 'the', 'moon']},
+  {titulo: 'Jogo bastante jogável 4', preco : '999.90', genero : ['Dark', 'moon']},
+  {titulo: 'Jogo bastante jogável 5', preco : '799.90', genero : ['Dark']},
+  {titulo: 'Jogo bastante jogável 6', preco : '499.90', genero : ['Psg', 'perdeu']},
   ]);
  
 
@@ -69,7 +64,7 @@ function ListaJogos(props){
                 return <p key={indice}>{genero}</p>
                 })}
               </li>
-              <li><div className='icones-fim'><span className="material-icons-round caneta">edit</span><span className="material-icons-round lixeira">delete</span></div></li>
+              <li><div className='icones-fim'><span className="material-icons-round caneta" onClick={()=> props.setClasse('show')}>edit</span><span className="material-icons-round lixeira">delete</span></div></li>
             </div>
           </ul>
         </div>
@@ -112,7 +107,7 @@ function JogosFixos(props){
 }
 function AddJogos(props){
   return(
-    <div className='add-jogos2'>
+    <div className='add-jogos2' onClick={() => props.setClasse('show')}>
       <span className="material-icons-round icone2">control_point </span>
       <p className='textoIcone2'>Adicionar um Jogo</p>  
     </div>
@@ -123,7 +118,6 @@ function AddJogos(props){
 function App() {
   return (
     <div>
-      <Menu/>
       <MeusJogos/>
     </div>
   );

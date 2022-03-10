@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+
+*{
+  background-color: #121212;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.geral{
+  margin-top: 143px;
+}
+
+.email{
+  font-size: 36px;
+  font-weight: 600;
+  color: #D9D9D9;
+  font-family: 'Poppins', sans-serif;
+}
+
+.caixa-wrapper{
+  width: 44%;
+  margin: 0 auto;
+}
+
+.caixa{
+  width: 100%;
+  font-size: 24px;
+  line-height: 34px;
+  display: block;
+  background-color: #252525;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 4px;
+  border: none;
+  color: #999999;
+  padding: 6px 0;
+  padding-left: 8px;
+
+}
+
+/* .email-box{
+  font-size: 24px;
+  margin-bottom: 0px;
+  background: #252525;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 4px;
+  border: none;
+} */
+
+.senha{
+  font-size: 36px;
+  font-weight: 600;
+  color: #D9D9D9;
+  font-family: 'Poppins', sans-serif;
+}
+
+
+/* .senha-box{
+  font-size: 24px;
+  margin-bottom: 0px;
+  background: #252525;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 4px;
+  border: none;
+} */
+
+.botao{
+  border-radius: 8px;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+  padding-top: 5px;
+  padding-left: 103px;
+  padding-right: 104px;
+  padding-bottom: 5px;
+  background-color: #3700B3;
+  font-size: 36px;
+  font-weight: 600;
+  color: #D9D9D9;
+  font-family: 'Poppins', sans-serif;
+  font-style: normal;
+  display: block;
+  margin-top: 56px;
+  margin-bottom: 27px;
+  margin-left: auto;
+  margin-right: auto;
+  border: none;
+}
+
+.cadastro{
+  text-align: center;
+}
+
+.ask{
+  color: #775CB6;
+  font-family: 'Poppins', sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  display: inline;
+}
+
+.link1{
+  color: #775CB6;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 24px;
+  display: inline;
+  margin-top: 0px;
+}
+
+#email1{
+  margin-bottom: 22px;
+}
