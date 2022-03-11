@@ -2,7 +2,7 @@ import {useNavigate} from 'react-router-dom'
 import './menu.css';
 
 
-function Menu(props) {
+export default function Menu(props) {
   
   let navigate = useNavigate();
 
@@ -17,6 +17,3 @@ function Menu(props) {
     </nav> 
   );
 }
-
-
-export default Menu;

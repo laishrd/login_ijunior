@@ -8,12 +8,12 @@ import './menu.css'
 export default function Principal(){
     return(
         <div>
-        <Menu/>
-        <Routes>
-            <Route path='/' element={<Home/>} />
-            <Route path='/minhaconta' element={<MinhaConta/>} />
-            <Route path='/todosjogos' element={<TodosJogos/>} />
-        </Routes>
+            <Menu/>
+            <Routes>
+                <Route path='/' element={<Home/>} />
+                <Route path='/minhaconta' element={<MinhaConta/>} />
+                <Route path='/todosjogos' element={<TodosJogos/>} />
+            </Routes>
         </div>
     );
-}
+} 

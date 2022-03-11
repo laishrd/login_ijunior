@@ -40,27 +40,39 @@ function MenuLista(props){
 
 function ListaJogos(props){
 
-  var [arrayJogos, setArrayJogos] = useState([{titulo: 'Dark Souls', preco : '159.90', genero : ['Souls-like', 'Dark-Fantasy', 'Dificil']},
-  {titulo: 'Jogo jogável 2', preco : '199.90', genero : ['Dark', 'Fantasia', 'Hard']},
-  {titulo: 'Jogo bastante jogável 2', preco : '299.90', genero : ['Dark', 'side', 'of', 'the', 'moon']},
+  var [arrayJogos, setArrayJogos] = useState([{titulo: 'Dark Souls', preco : '159.90', genero : 'Souls-like, Dark-Fantasy, Dificil'},
+  {titulo: 'Jogo jogável 2', preco : '199.90', genero : 'Dark, Fantasia, Hard'},
+  {titulo: 'Jogo bastante jogável 2', preco : '299.90', genero : 'Dark side, of, the, moon'},
   ]);
  
+
+  function removerItem(item, arrayJogos, setArrayJogos){
+    let arr = arrayJogos;
+    let novoArr = arr.filter(t => t.titulo !== item.titulo && t.preco !== item.preco);
+    setArrayJogos(novoArr);
+  }
+
+  function criarArrayGeneros(obj){
+    var arrayGeneros = obj.genero.split(",");
+    return arrayGeneros;
+  }
 
    return(
       <div>
        {arrayJogos.map(function(obj, i){
         return(
-        <div className='lista-jogos'>
+        <div key={i} className='lista-jogos'>
           <ul>
-            <div key={i}>
+            <div>
               <li>{obj.titulo}</li>
               <li>R${obj.preco}</li>
               <li>
-                {obj.genero.map(function(genero, indice){
-                return <p key={indice}>{genero}</p>
-                })}
+                {
+                  criarArrayGeneros(obj).map(function(genero, indice){
+                  return <p key={indice}>{genero}</p> })
+                }
               </li>
-              <li><div className='icones-fim'><span className="material-icons-round caneta" onClick={() => props.setClasse('show')}>edit</span><span className="material-icons-round lixeira">delete</span></div></li>
+              <li><div className='icones-fim'><span className="material-icons-round caneta" onClick={() => props.setClasse('show')}>edit</span><span onClick={() => removerItem(obj, arrayJogos, setArrayJogos)} className="material-icons-round lixeira">delete</span></div></li>
             </div>
           </ul>
         </div>

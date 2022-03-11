@@ -6,7 +6,7 @@ function EditarJogo(props){
   return(
     <div className={props.classe}>
       <div onClick={() => props.setClasse('hide')} className='pelicula'></div>
-      <div className='box'>
+      <div className='box-janela'>
         <nav className='titulo'>
           <h1 className='white'>Editar Jogo</h1>
         </nav>

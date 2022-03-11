@@ -41,30 +41,42 @@ function MenuLista(props){
 
 function ListaJogos(props){
 
-  var [arrayJogos, setArrayJogos] = useState([{titulo: 'Dark Souls', preco : '159.90', genero : ['Souls-like', 'Dark-Fantasy', 'Dificil']},
-  {titulo: 'Jogo jogável 2', preco : '199.90', genero : ['Dark', 'Fantasia', 'Hard']},
-  {titulo: 'Jogo bastante jogável 2', preco : '299.90', genero : ['Dark', 'side', 'of', 'the', 'moon']},
-  {titulo: 'Jogo bastante jogável 4', preco : '999.90', genero : ['Dark', 'moon']},
-  {titulo: 'Jogo bastante jogável 5', preco : '799.90', genero : ['Dark']},
-  {titulo: 'Jogo bastante jogável 6', preco : '499.90', genero : ['Psg', 'perdeu']},
+  var [arrayJogos, setArrayJogos] = useState([{titulo: 'Dark Souls', preco : '159.90', genero : 'Souls-like, Dark-Fantasy, Dificil'},
+  {titulo: 'Jogo jogável 2', preco : '199.90', genero : 'Dark, Fantasia, Hard'},
+  {titulo: 'Jogo bastante jogável 2', preco : '299.90', genero : 'Dark, side, of, the, moon'},
+  {titulo: 'Jogo bastante jogável 4', preco : '999.90', genero : 'Dark, moon'},
+  {titulo: 'Jogo bastante jogável 5', preco : '799.90', genero : 'Dark'},
+  {titulo: 'Jogo bastante jogável 6', preco : '499.90', genero : 'Psg, perdeu'},
   ]);
  
+  function removerItem(item, arrayJogos, setArrayJogos){
+    let arr = arrayJogos;
+    let novoArr = arr.filter(itemTemp => itemTemp.titulo !== item.titulo && itemTemp.preco !== item.preco && itemTemp.genero !== item.genero);
+    setArrayJogos(novoArr);
+  }
+
+  function criarArrayGeneros(obj){
+    var arrayGeneros = obj.genero.split(",");
+    return arrayGeneros;
+  }
 
    return(
       <div>
        {arrayJogos.map(function(obj, i){
         return(
-        <div className='lista-jogos'>
+        <div key={i} className='lista-jogos'>
           <ul>
-            <div key={i}>
+            <div>
               <li>{obj.titulo}</li>
               <li>R${obj.preco}</li>
               <li>
-                {obj.genero.map(function(genero, indice){
-                return <p key={indice}>{genero}</p>
-                })}
+                {
+                  criarArrayGeneros(obj).map(function(genero, indice){
+                    return <p key={indice}>{genero}</p>
+                })
+                }
               </li>
-              <li><div className='icones-fim'><span className="material-icons-round caneta" onClick={()=> props.setClasse('show')}>edit</span><span className="material-icons-round lixeira">delete</span></div></li>
+              <li><div className='icones-fim'><span className="material-icons-round caneta" onClick={()=> props.setClasse('show')}>edit</span><span onClick={() => removerItem(obj, arrayJogos, setArrayJogos)}  className="material-icons-round lixeira">delete</span></div></li>
             </div>
           </ul>
         </div>
@@ -76,25 +88,32 @@ function ListaJogos(props){
 
 function JogosFixos(props){
 
-  var [arrayJogos, setArrayJogos] = useState([{titulo: 'Dark Souls III', preco : '159.90', genero : ['Souls-like', 'Dark Fantasy', 'Difícil']},
-  {titulo: 'Dark Souls III', preco : '159.90', genero : ['Souls-like', 'Dark Fantasy', 'Difícil']},
-  {titulo: 'Dark Souls III', preco : '159.90', genero : ['Souls-like', 'Dark Fantasy', 'Difícil']},
+  var [arrayJogos, setArrayJogos] = useState([{titulo: 'Dark Souls III', preco : '159.90', genero : 'Souls-like, Dark Fantasy, Difícil'},
+  {titulo: 'Dark Souls III', preco : '159.90', genero : 'Souls-like, Dark Fantasy, Difícil'},
+  {titulo: 'Dark Souls III', preco : '159.90', genero : 'Souls-like, Dark Fantasy, Difícil'},
   ]);
  
+
+  function criarArrayGeneros(obj){
+    var arrayGeneros = obj.genero.split(",");
+    return arrayGeneros;
+  }
 
    return(
       <div>
        {arrayJogos.map(function(obj, i){
         return(
-        <div className='lista-jogos'>
+        <div key={i} className='lista-jogos'>
           <ul>
-            <div key={i}>
+            <div>
               <li>{obj.titulo}</li>
               <li>R${obj.preco}</li>
               <li className='jogos-fixos'>
-                {obj.genero.map(function(genero, indice){
-                return <p key={indice}>{genero}</p>
-                })}
+                {
+                  criarArrayGeneros(obj).map(function(genero, indice){
+                    return <p key={indice}>{genero}</p>
+                })
+                }
               </li>
             
             </div>

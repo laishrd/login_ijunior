@@ -1,13 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
-import { BrowserRouter } from "react-router-dom";
-import TodosJogos from './TodosJogos' 
+import { BrowserRouter, Route, Routes} from "react-router-dom";
+import TodosJogos from './TodosJogos'
 import Principal from './Principal'
+import Login from './Login'
+import Cadastro from './Cadastro'
+
+     
 
 ReactDOM.render(
   <BrowserRouter>
-    <Principal/>
+  <Routes>
+        <Route path='/cadastro' element={<Cadastro/>} />
+        <Route path='/*' element={<Principal/>} />
+        <Route path='/login' element={<Login/>} />
+    </Routes> 
   </BrowserRouter>,
   document.getElementById('root')
 );
