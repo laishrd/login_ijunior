@@ -8,7 +8,7 @@ function Email(props){
   return( 
     <div className='caixa-wrapper'>
       <label htmlFor='email1' className='email'>Email</label>
-      <input  onChange={(event) => props.setEmail(event.target.value)} id='email1' className='caixa' type="text" placeholder=" " required/>
+      <input  onChange={(event) => props.setEmail(event.target.value)} id='email1' className='caixa' type="text" placeholder=" " required="required"/>
     </div>
   )
 }
@@ -18,15 +18,17 @@ function Senha(props){
   return(
     <div className='caixa-wrapper'>
       <label htmlFor='senha1' className='senha'>Senha</label>
-      <input onChange={(event) => props.setSenha(event.target.value)}  id='senha1' className='caixa' type="password" placeholder=" " required/>
+      <input onChange={(event) => props.setSenha(event.target.value)}  id='senha1' className='caixa' type="password" placeholder=" " required="required"/>
     </div>
   )
 }
 
 function Botao(props){
 
-  var navigate = useNavigate();
-  var urlBase = 'http://localhost:3001';
+  let navigate = useNavigate();
+  let urlBase = 'http://localhost:3001';
+
+  let [avisoErro, setAvisoErro] = useState("center opacity0");
 
   function fazerLogin(email, senha){
     axios.post(`${urlBase}/usuarios/login`, {
@@ -39,11 +41,15 @@ function Botao(props){
     })
     .catch(function (error) {
       console.log(error);
+      setAvisoErro("center opacity1");
     });
   }
 
   return(
+    <div className='botao-wrapper'>
+    <p className={avisoErro}>Email ou senha incorretos!</p>
     <button onClick={()=> fazerLogin(props.email, props.senha)} className='botao'>Entrar</button>
+    </div>
   )
 }
 

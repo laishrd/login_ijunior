@@ -1,4 +1,6 @@
 import {useState} from 'react'
+
+import axios from 'axios';
 import './lista-jogos.css';
 import './janela.css'
 import AdicionarJogo from './AdicionarJogo'
@@ -49,6 +51,7 @@ function ListaJogos(props){
   {titulo: 'Jogo bastante jogável 6', preco : '499.90', genero : 'Psg, perdeu'},
   ]);
  
+
   function removerItem(item, arrayJogos, setArrayJogos){
     let arr = arrayJogos;
     let novoArr = arr.filter(itemTemp => itemTemp.titulo !== item.titulo && itemTemp.preco !== item.preco && itemTemp.genero !== item.genero);

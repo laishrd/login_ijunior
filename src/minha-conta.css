@@ -57,3 +57,11 @@
 .hide{
     display: none;
 } */
+
+
+@media screen and (max-width: 720px){
+    .box-conta{
+      position: absolute;
+      left: 0px;
+    }
+  }

@@ -1,8 +1,17 @@
 import './janela.css';
+import { useState } from 'react';
+import axios from 'axios';
 import Botao  from './Botao';
 import Input from './Input';
 
 function AdicionarJogo(props){
+
+
+  let [nome, setNome] = useState("");
+  let [preco, setPreco] = useState();
+  let [genero, setGenero] = useState("");
+
+
     return(
       <div className={props.classe}>
         <div onClick={() => props.setClasse('hide')} className='pelicula'></div>
@@ -12,13 +21,13 @@ function AdicionarJogo(props){
           </nav>
           <form>
               <div className='inputs'>
-                <Input type="text" placeholder="Digite o nome" id="nome" label="Nome"/>
-                <Input type="text" placeholder="Digite o preço" id="preço2" label="Preço"/>
-                <Input type="text" placeholder="Digite o gênero" id="genero2" label="Gênero"/>
+                <Input type="text" setValor={setNome} id="nome" label="Nome"/>
+                <Input type="text" setValor={setPreco} id="preço2" label="Preço"/>
+                <Input type="text" setValor={setGenero} id="genero2" label="Gênero"/>
               </div>
               <div className='btns'>
                 <Botao setClasse={props.setClasse} texto='Cancelar' classes='btn-marrom btn white'/>
-                <Botao texto='Adicionar' classes='btn-roxo btn white'/>
+                <Botao nome={nome} preco={preco} genero={genero} texto='Adicionar' classes='btn-roxo btn white'/>
               </div>
           </form>
         </div>

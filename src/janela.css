@@ -40,14 +40,14 @@
 }
 
 
-.box nav.titulo{
+.box-janela nav.titulo{
   background-color: #333333;
   color: white;
   text-align: center;
   margin-bottom: 22px;
 }
 
-.box .titulo h1{
+.box-janela .titulo h1{
   font-weight: 200;
   padding: 18px 0;
 }
@@ -60,11 +60,11 @@
   font-weight: 200;
 }
 
-.box label{
+.box-janela label{
   font-size: 18px;
 }
 
-.box input, .tela-conta input{
+.box-janela input, .tela-conta input{
   display: block;
   padding-left: 10px;
   background-color: #333333;
@@ -80,7 +80,7 @@
   color: #D9D9D9;
 }
 
-.box input:focus{
+.box-janela input:focus{
   outline: 0;
   box-shadow: 0 0 10px rgb(102, 102, 102);
 }

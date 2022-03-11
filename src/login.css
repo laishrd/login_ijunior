@@ -7,6 +7,17 @@
   box-sizing: border-box;
 }
 
+.center{
+  text-align: center;
+}
+
+.opacity0{
+  opacity: 0;
+}
+.opacity1{
+  opacity: 1;
+}
+
 .geral{
   padding-top: 143px;
 }
@@ -49,10 +60,7 @@
 .botao{
   border-radius: 8px;
   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
-  padding-top: 5px;
-  padding-left: 103px;
-  padding-right: 104px;
-  padding-bottom: 5px;
+  padding: 5px 104px 5px 103px;
   background-color: #3700B3;
   font-size: 36px;
   font-weight: 600;
@@ -60,11 +68,13 @@
   font-family: 'Poppins', sans-serif;
   font-style: normal;
   display: block;
-  margin-top: 56px;
-  margin-bottom: 27px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 36px auto 27px auto;
   border: none;
+  cursor: pointer;
+}
+
+.botao-wrapper{
+  padding-top: 20px;
 }
 
 .cadastro{
@@ -90,4 +100,42 @@
 
 #email1{
   margin-bottom: 22px;
+}
+
+
+@media screen and (max-width: 720px) {
+  .caixa-wrapper{
+    width: 70%;
+  }
+
+  .email, .senha{
+    font-size: 24px;
+  }
+
+  .botao{
+    font-size: 24px;
+  }
+  .ask{
+    font-size: 18px;
+    
+  }
+  .link1{
+    font-size: 18px;
+  }
+
+}
+
+@media screen and (max-width: 280px) {
+ 
+  .botao{
+    padding: 5px 50px 5px 50px;
+  }
+  .ask{
+    display: block;
+    
+  }
+  .link1{
+    font-size: 18px;
+  }
+
 }
