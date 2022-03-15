@@ -5,7 +5,7 @@ import Input from './Input';
 
 function EditarEmail(props){
 
-  var [email, setEmail] = useState("");
+  var [emailDigitado, setEmailDigitado] = useState("");
 
 return(
   <div className={props.classe}>
@@ -16,11 +16,11 @@ return(
     </nav>
     <form>
         <div className='inputs'>
-          <Input setValor={setEmail} type="email" id="email" label="Novo Email"/>
+          <Input setValor={setEmailDigitado} type="email" id="email" label="Novo Email"/>
         </div>
         <div className='btns'>
-          <Botao setClasse={props.setClasse} texto='Cancelar' classes='btn-marrom btn white'/>
-          <Botao texto='Confirmar' email={email} classes='btn-roxo btn white' funcao="editar email"/>
+          <Botao setClasseVisivel={props.setClasse} texto='Cancelar' classes='btn-marrom btn white'/>
+          <Botao setEmailAtual={props.setEmailAtual} emailAtual={props.emailAtual} setClasseVisivel={props.setClasse} texto='Confirmar' emailDigitado={emailDigitado} classes='btn-roxo btn white' funcao="editar email"/>
         </div>
     </form>
   </div>

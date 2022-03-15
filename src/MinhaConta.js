@@ -1,12 +1,19 @@
-import Input from './Input'
 import './janela.css'
 import './minha-conta.css'
 import api from './services/api'
 import {useEffect, useState} from 'react'
 import EditarEmail from './EditarEmail'
 import TrocarSenha from './TrocarSenha'
+import { useNavigate } from 'react-router-dom'
 
 function TelaConta(){
+
+    let navigate = useNavigate();
+    useEffect(()=>{
+      if(!("id" in localStorage)){
+          navigate("/login");
+      }
+    },[navigate]);
 
     var [editarEmail, setEditarEmail] = useState('hide');
     var [trocarSenha, setTrocarSenha] = useState('hide');
@@ -28,13 +35,11 @@ function TelaConta(){
 
     return(
         <div>
-            <EditarEmail classe={editarEmail} setClasse={setEditarEmail}/>
+            <EditarEmail emailAtual={emailAtual} setEmailAtual={setEmailAtual} classe={editarEmail} setClasse={setEditarEmail}/>
             <TrocarSenha classe={trocarSenha} setClasse={setTrocarSenha}/>
             <div className='box-conta'>
                 <div className='tela-conta'>
                     <h1 className='white'>Minha Conta</h1>
-                        {/* <Input label='Nome'/>
-                        <Input label='Email'/> */}
                         <label className='white weight200'>Nome</label>
                         <input type='text' disabled="disabled" placeholder={nome}/>
                         <label className='white weight200' >Email</label>

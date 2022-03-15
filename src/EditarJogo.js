@@ -38,8 +38,8 @@ function EditarJogo(props){
               <InputEdt value={genero} type="text" setValor={setGenero} id="genero1" label="Gênero"/>
             </div>
             <div className='btns'>
-              <Botao setClasse={props.setClasse} texto='Cancelar' classes='btn-marrom btn white'/>
-              <Botao id={props.idJogo} nome={nome} preco={preco} genero={genero} texto='Confirmar' classes='btn-roxo btn white' funcao="editar jogo"/>
+              <Botao setClasseVisivel={props.setClasse} texto='Cancelar' classes='btn-marrom btn white'/>
+              <Botao arrayJogos={props.arrayJogos} setArrayJogos={props.setArrayJogos} setClasseVisivel={props.setClasse} id={props.idJogo} nome={nome} preco={preco} genero={genero} texto='Confirmar' classes='btn-roxo btn white' funcao="editar jogo"/>
             </div>
         </form>
       </div>

@@ -19,7 +19,7 @@ body {
   left: 96px;
 }
 
-.meus-jogos h1{
+.meus-jogos > h1{
   color: white;
   font-weight: 275;
   margin-bottom: 46px;

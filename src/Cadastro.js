@@ -1,19 +1,14 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import api from './services/api';
 import './cadastro.css';
 
 function Seta(props){
-
   let navigate = useNavigate();
-  
   return(
     <div onClick={() => navigate("/login")} className='seta'>
-      {/* <a href="/login"> */}
       <span className="material-icons-round arrow">arrow_back</span>
-      {/* </a> */}
     </div> 
-
   );
 }
 function PrimeiraLinha(props){
@@ -36,18 +31,14 @@ function SegundaLinha(props){
 
   let [classeAviso, setClasseAviso] = useState("center opacity0");
 
-  function receberSenhaConf(){
-    if(props.senha !== props.senhaConf){
+  function receberSenhaConf(senhaConf){
+    if(props.senha !== senhaConf){
       setClasseAviso("center opacity1");
     }else{
       setClasseAviso("center opacity0");
     }
+    props.setSenhaConf(senhaConf);
   }
-
-  useEffect(() =>{
-    const timeOutId = setTimeout(() => receberSenhaConf(), 200);
-    return () => clearTimeout(timeOutId);
-  }, [props.senhaConf]);
 
   return(
     <fieldset className="grupo">
@@ -57,7 +48,7 @@ function SegundaLinha(props){
       </div>
       <div className="campo">
           <label htmlFor="senha">Confirmar senha</label>
-          <input value={props.senhaConf} onChange={(event) => props.setSenhaConf(event.target.value)} type="password" id="senha2" className="entrada" required="required"/>
+          <input onChange={(event) => receberSenhaConf(event.target.value)} type="password" id="senha2" className="entrada" required="required"/>
       </div>
       <p className={classeAviso}>As senhas não coicidem!</p>
     </fieldset>
@@ -67,8 +58,6 @@ function SegundaLinha(props){
 function Botao(props){
 
   let navigate = useNavigate();
-  let urlBase = 'http://localhost:3001';
-
 
   function fazerCadastro(nome, email, senha, senhaConf, e){
     e.preventDefault();
@@ -77,7 +66,7 @@ function Botao(props){
     }else if(nome === "" || email === "" || senha === "" || senhaConf === ""){
       alert("Campos vazios não são permitidos");
     }else{
-      axios.post(`${urlBase}/usuarios/`, {
+      api.post(`usuarios/`, {
         nome: `${nome}`,
         email: `${email}`,
         senha: `${senha}`,

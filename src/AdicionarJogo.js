@@ -21,12 +21,12 @@ function AdicionarJogo(props){
           <form>
               <div className='inputs'>
                 <Input type="text" setValor={setNome} id="nome" label="Nome"/>
-                <Input type="text" setValor={setPreco} id="preço2" label="Preço"/>
+                <Input type="text" setValor={setPreco} id="preco2" label="Preço"/>
                 <Input type="text" setValor={setGenero} id="genero2" label="Gênero"/>
               </div>
               <div className='btns'>
-                <Botao setClasse={props.setClasse} texto='Cancelar' classes='btn-marrom btn white'/>
-                <Botao nome={nome} preco={preco} genero={genero} texto='Adicionar' classes='btn-roxo btn white' funcao="adicionar jogo"/>
+                <Botao setClasseVisivel={props.setClasse} texto='Cancelar' classes='btn-marrom btn white'/>
+                <Botao setClasseVisivel={props.setClasse} nome={nome} preco={preco} genero={genero} arrayJogos={props.arrayjogos} setArrayJogos={props.setArrayJogos} texto='Adicionar' classes='btn-roxo btn white' funcao="adicionar jogo"/>
               </div>
           </form>
         </div>

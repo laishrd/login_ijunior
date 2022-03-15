@@ -135,7 +135,7 @@ fieldset.grupo .campo{
     padding: 0.2em 1em;
     margin-top: 20px;
   }
-  
+
   .campo input[type="text"], .campo input[type="email"], .campo input[type="password"]{
     padding-bottom: 1em;
   }
