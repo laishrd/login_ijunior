@@ -1,8 +1,29 @@
 import './janela.css';
+import { useEffect, useState } from 'react';
+import api from './services/api'
 import Botao  from './Botao';
-import Input from './Input';
+import InputEdt from './InputEdt';
  
 function EditarJogo(props){
+
+  let [nome, setNome] = useState("");
+  let [preco, setPreco] = useState();
+  let [genero, setGenero] = useState("");
+
+    useEffect(()=>{
+      if(props.idJogo >= 0){
+        api.get(`jogos/${props.idJogo}`)
+        .then(function(response){
+          setNome(response.data.nome);
+          setPreco(response.data.preco);
+          setGenero(response.data.genero);
+        })
+        .catch(function(error){
+            console.log(error);
+        });
+      }
+    }, [props]);
+ 
   return(
     <div className={props.classe}>
       <div onClick={() => props.setClasse('hide')} className='pelicula'></div>
@@ -12,13 +33,13 @@ function EditarJogo(props){
         </nav>
         <form>
             <div className='inputs'>
-              <Input type="text" placeholder="Digite o título" id="titulo1" label="Título"/>
-              <Input type="text" placeholder="Digite o preço" id="preço1" label="Preço"/>
-              <Input type="text" placeholder="Digite o gênero" id="genero1" label="Gênero"/>
+              <InputEdt value={nome} type="text" setValor={setNome} id="titulo1" label="Título"/>
+              <InputEdt value={preco} type="text" setValor={setPreco} id="preço1" label="Preço"/>
+              <InputEdt value={genero} type="text" setValor={setGenero} id="genero1" label="Gênero"/>
             </div>
             <div className='btns'>
               <Botao setClasse={props.setClasse} texto='Cancelar' classes='btn-marrom btn white'/>
-              <Botao texto='Confirmar' classes='btn-roxo btn white'/>
+              <Botao id={props.idJogo} nome={nome} preco={preco} genero={genero} texto='Confirmar' classes='btn-roxo btn white' funcao="editar jogo"/>
             </div>
         </form>
       </div>

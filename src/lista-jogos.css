@@ -6,6 +6,14 @@ body {
   background-color: #252525;
 } 
 
+.visibilidade-hidden{
+  visibility: hidden;
+}
+
+.display-block{
+  display: block;
+}
+
 .box-jogos{
   position: absolute;
   left: 96px;

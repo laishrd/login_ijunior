@@ -1,6 +1,5 @@
 import './janela.css';
 import { useState } from 'react';
-import axios from 'axios';
 import Botao  from './Botao';
 import Input from './Input';
 
@@ -27,7 +26,7 @@ function AdicionarJogo(props){
               </div>
               <div className='btns'>
                 <Botao setClasse={props.setClasse} texto='Cancelar' classes='btn-marrom btn white'/>
-                <Botao nome={nome} preco={preco} genero={genero} texto='Adicionar' classes='btn-roxo btn white'/>
+                <Botao nome={nome} preco={preco} genero={genero} texto='Adicionar' classes='btn-roxo btn white' funcao="adicionar jogo"/>
               </div>
           </form>
         </div>

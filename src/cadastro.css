@@ -123,10 +123,20 @@ fieldset.grupo .campo{
   .campo label{
     font-size: 20px;
     font-weight: 300;
+    padding-bottom: 1em;
   }
+
+  .primeiro-grupo{
+    padding-bottom: 1em;
+  }
+
   .divSubmit input[type="submit"]{
     font-size: 24px;
     padding: 0.2em 1em;
     margin-top: 20px;
+  }
+  
+  .campo input[type="text"], .campo input[type="email"], .campo input[type="password"]{
+    padding-bottom: 1em;
   }
 }

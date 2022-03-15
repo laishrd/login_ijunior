@@ -1,5 +1,5 @@
 import './login.css';
-import axios from 'axios'
+import api from './services/api'
 import {useNavigate} from 'react-router-dom';
 import { useState } from 'react';
 
@@ -31,15 +31,17 @@ function Botao(props){
   let [avisoErro, setAvisoErro] = useState("center opacity0");
 
   function fazerLogin(email, senha){
-    axios.post(`${urlBase}/usuarios/login`, {
+    api.post(`usuarios/login`, {
       email: `${email}`,
       senha: `${senha}`
     })
-    .then(function (response) {
+    .then(function(response) {
       console.log(response);
+      localStorage.setItem("id", response.data.id);
+      localStorage.setItem("email", response.data.email);
       navigate('/');
     })
-    .catch(function (error) {
+    .catch(function(error) {
       console.log(error);
       setAvisoErro("center opacity1");
     });

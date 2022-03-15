@@ -1,6 +1,6 @@
 import {useState} from 'react'
-
-import axios from 'axios';
+import { useEffect } from 'react';
+import api from './services/api';
 import './lista-jogos.css';
 import './janela.css'
 import AdicionarJogo from './AdicionarJogo'
@@ -43,25 +43,31 @@ function MenuLista(props){
 
 function ListaJogos(props){
 
-  var [arrayJogos, setArrayJogos] = useState([{titulo: 'Dark Souls', preco : '159.90', genero : 'Souls-like, Dark-Fantasy, Dificil'},
-  {titulo: 'Jogo jogável 2', preco : '199.90', genero : 'Dark, Fantasia, Hard'},
-  {titulo: 'Jogo bastante jogável 2', preco : '299.90', genero : 'Dark, side, of, the, moon'},
-  {titulo: 'Jogo bastante jogável 4', preco : '999.90', genero : 'Dark, moon'},
-  {titulo: 'Jogo bastante jogável 5', preco : '799.90', genero : 'Dark'},
-  {titulo: 'Jogo bastante jogável 6', preco : '499.90', genero : 'Psg, perdeu'},
-  ]);
+  var [arrayJogos, setArrayJogos] = useState([]);
+  var [classeIcones, setClasseIcones] = useState("display-block");
+
+  useEffect(()=>{
+    api.get(`jogos/`)
+    .then(function(response){
+      var arrTemp = response.data.filter(item => item.Usuario.id == localStorage.getItem("id"));
+      console.log(arrTemp);
+      setArrayJogos(arrTemp);
+    })
+    .catch(function(error){
+        console.log(error);
+    });
+  },[])
  
 
-  function removerItem(item, arrayJogos, setArrayJogos){
-    let arr = arrayJogos;
-    let novoArr = arr.filter(itemTemp => itemTemp.titulo !== item.titulo && itemTemp.preco !== item.preco && itemTemp.genero !== item.genero);
-    setArrayJogos(novoArr);
+  function removerItem(){
+
   }
 
   function criarArrayGeneros(obj){
     var arrayGeneros = obj.genero.split(",");
     return arrayGeneros;
   }
+
 
    return(
       <div>
@@ -70,7 +76,7 @@ function ListaJogos(props){
         <div key={i} className='lista-jogos'>
           <ul>
             <div>
-              <li>{obj.titulo}</li>
+              <li>{obj.nome}</li>
               <li>R${obj.preco}</li>
               <li>
                 {
@@ -89,18 +95,28 @@ function ListaJogos(props){
    );
 }
 
-function JogosFixos(props){
 
-  var [arrayJogos, setArrayJogos] = useState([{titulo: 'Dark Souls III', preco : '159.90', genero : 'Souls-like, Dark Fantasy, Difícil'},
-  {titulo: 'Dark Souls III', preco : '159.90', genero : 'Souls-like, Dark Fantasy, Difícil'},
-  {titulo: 'Dark Souls III', preco : '159.90', genero : 'Souls-like, Dark Fantasy, Difícil'},
-  ]);
+function JogosFixos(props){
+  var [arrayJogos, setArrayJogos] = useState([]);
+
+  useEffect(()=>{
+    api.get(`jogos/`)
+    .then(function(response){
+      var arrTemp = response.data.filter(item => item.Usuario.id != localStorage.getItem("id"));
+      console.log(arrTemp);
+      setArrayJogos(arrTemp);
+    })
+    .catch(function(error){
+        console.log(error);
+    });
+  },[])
  
 
   function criarArrayGeneros(obj){
     var arrayGeneros = obj.genero.split(",");
     return arrayGeneros;
   }
+
 
    return(
       <div>
@@ -109,16 +125,16 @@ function JogosFixos(props){
         <div key={i} className='lista-jogos'>
           <ul>
             <div>
-              <li>{obj.titulo}</li>
+              <li>{obj.nome}</li>
               <li>R${obj.preco}</li>
-              <li className='jogos-fixos'>
+              <li>
                 {
                   criarArrayGeneros(obj).map(function(genero, indice){
                     return <p key={indice}>{genero}</p>
                 })
                 }
               </li>
-            
+              <li><div className='icones-fim visibilidade-hidden'><span className="material-icons-round caneta">edit</span><span className="material-icons-round lixeira">delete</span></div></li>
             </div>
           </ul>
         </div>
@@ -127,6 +143,7 @@ function JogosFixos(props){
        </div>
    );
 }
+
 function AddJogos(props){
   return(
     <div className='add-jogos2' onClick={() => props.setClasse('show')}>

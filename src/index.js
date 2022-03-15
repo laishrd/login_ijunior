@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Route, Routes} from "react-router-dom";
-import TodosJogos from './TodosJogos'
 import Principal from './Principal'
 import Login from './Login'
 import Cadastro from './Cadastro'
