@@ -17,8 +17,8 @@ function TrocarSenha(props){
               <Input type="password" placeholder="" id="senhaNovaC" label="Confirmar nova senha"/>
             </div>
             <div className='btns'>
-              <Botao setClasse={props.setClasse} texto='Cancelar' classes='btn-marrom btn white'/>
-              <Botao texto='Confirmar' classes='btn-roxo btn white'/>
+              <Botao setClasseVisivel={props.setClasse} texto='Cancelar' classes='btn-marrom btn white'/>
+              <Botao setClasseVisivel={props.setClasse} texto='Confirmar' classes='btn-roxo btn white'/>
             </div>
         </form>
       </div>

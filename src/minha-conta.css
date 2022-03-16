@@ -62,13 +62,13 @@
 @media screen and (max-width: 720px){
     .box-conta{
         left: 0;
+        bottom: 96px;
         margin: 0 auto;
         width: 100%;
-        top:20px;
+        top: 16px; 
     }
     
     .tela-conta h1{
-       
         text-align: center;
     }
     
@@ -79,9 +79,9 @@
     .tela-conta input{
         width: 100%;
     }
+
     .btn-roxo-conta{
         width: 100%;
-      
     }
     
   }

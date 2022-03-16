@@ -26,7 +26,6 @@ function Senha(props){
 function Botao(props){
 
   let navigate = useNavigate();
-  let urlBase = 'http://localhost:3001';
 
   let [avisoErro, setAvisoErro] = useState("center opacity0");
 
@@ -36,7 +35,6 @@ function Botao(props){
       senha: `${senha}`
     })
     .then(function(response) {
-      console.log(response);
       localStorage.setItem("id", response.data.id);
       localStorage.setItem("email", response.data.email);
       navigate('/');
